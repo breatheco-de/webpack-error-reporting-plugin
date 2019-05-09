@@ -1,6 +1,6 @@
 {
   "name": "bc-webpack-error-reporting-plugin",
-  "version": "0.1",
+  "version": "0.0.1",
   "description": "Logs webpack errors into any given API",
   "main": "index.js",
   "engines": {
