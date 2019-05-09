@@ -9,7 +9,7 @@ This plugin is fully compatible with:
 ## Installation
 
 ```
-$ npm install bc-webpack-error-reporting-plugin
+$ npm install bc-webpack-error-reporting-plugin --save-dev
 ```
 
 ## Sample Configuration
