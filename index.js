@@ -1,4 +1,4 @@
 
-const Plugin = require('./src/webpack-reporting-plugin');
+const Plugin = require('./src/webpack-error-reporting-plugin');
 
 module.exports = Plugin;
