@@ -1,4 +1,4 @@
-# BreatheCode's Webpack Error Reporting Plugin
+# ![alt text](https://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=breathecode,32) Webpack's Error Reporting Plugin
 
 This webpack plugin will do a POST call to any given URL every time webpack find an error.
 
@@ -9,7 +9,7 @@ This plugin is fully compatible with:
 ## Installation
 
 ```
-$ npm install bc-webpack-error-reporting-plugin
+$ npm install bc-webpack-error-reporting-plugin --save-dev
 ```
 
 ## Sample Configuration
