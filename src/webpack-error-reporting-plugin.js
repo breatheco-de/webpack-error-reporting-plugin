@@ -44,7 +44,10 @@ class WebpackErrorReporting {
 
         const processedErrors = transformErrors(errors, this.transformers).map(e => {
             delete e.originalStack;
-            e.slug = "webpack_error";
+            e.slug = "compilation_error";
+            e.compiler="webpack";
+            e.language="vanillaks";
+
             e.username = this.username;
             e.details = e.webpackError ? e.webpackError.toString() : '';
             delete e.webpackError;
