@@ -17,6 +17,10 @@ class WebpackErrorReporting {
         this.hookURL = options.hookURL || null;
         this.username = options.username || null;
         this.token = options.token || null;
+        this.compiler = options.compiler || null;
+        this.language = options.language || null;
+        this.framework = options.framework || null;
+        this.onError = options.onError || null;
         this.silent = typeof options.silent == 'undefined' ? true : options.silent;
     }
 
@@ -42,17 +46,19 @@ class WebpackErrorReporting {
 
         const log = (message) => this.silent ? null : console.log(`${chalk.blue('ℹ')} ${chalk.gray('[wrp]')}: ${message}`);
 
-        const processedErrors = transformErrors(errors, this.transformers).map(e => {
+        let processedErrors = transformErrors(errors, this.transformers).map(e => {
             delete e.originalStack;
             e.slug = "compilation_error";
-            e.compiler="webpack";
-            e.language="vanillaks";
-
+            e.compiler = this.compiler;
+            e.language = this.language;
+            e.framework = this.framework;
             e.username = this.username;
             e.details = e.webpackError ? e.webpackError.toString() : '';
             delete e.webpackError;
             return e;
         });
+        if(this.onError) processedErrors = processedErrors.map(this.onError);
+
         if(!this.hookURL || !this.username){
             console.log(chalk.red(`
 

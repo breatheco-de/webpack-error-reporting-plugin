@@ -49,9 +49,16 @@ module.exports = {
   },
   plugins: [
     new WebpackErrorReporting({
-        hookURL: 'https://assets.breatheco.de/apis/activity/coding',
+        hookURL: 'https://assets.breatheco.de/apis/activity/coding_error',
         username: 'alesanchezr',
+        compiler: 'webpack',
+        framework: 'vanillajs',
+        language: 'html,css,javascript',
         token: 'asdasd',
+        onError: (error) => {
+            error.details = "Some sample";
+            return error;
+        },
         silent: false
     }),
     new webpack.HotModuleReplacementPlugin(),
